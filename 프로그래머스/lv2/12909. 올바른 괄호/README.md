@@ -1,4 +1,4 @@
-# [level 2] 올바른 괄호 - 12909 
+# [level 2] 올바른 괄호 - 12909 (
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12909#qna) 
 
@@ -66,3 +66,19 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+
+---
+### 풀이
+
+```python
+def solution(s):
+    x = 0
+    for i in s:
+        if x < 0:    # ")"가 "(" 보다 하나라도 앞에 위치하면 "()"가 나올 수 없다
+            break
+        if i =="(":
+            x += 1
+        elif i ==")":
+            x -= 1
+    return x == 0
+```
