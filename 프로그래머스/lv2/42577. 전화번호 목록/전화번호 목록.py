@@ -1,8 +1,11 @@
+from collections import deque
+
 def solution(phone_book):
     phone_book.sort()
-    for i in range(1, len(phone_book)):
-        if phone_book[i-1] != phone_book[i][0:len(phone_book[i-1])]:
-            continue
-        elif phone_book[i-1] in phone_book[i]:
+    q = deque(phone_book)
+    while len(q) > 1:
+        num = q.popleft()
+        if num == q[0][:len(num)]:
             return False
     return True
+    
