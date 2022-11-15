@@ -1,11 +1,10 @@
-from collections import deque
-
 def solution(phone_book):
     phone_book.sort()
-    q = deque(phone_book)
-    while len(q) > 1:
-        num = q.popleft()
-        if num == q[0][:len(num)]:
+    dict = {}
+    for i in phone_book:
+        try:
+            dict[i[0]] += 1
             return False
+        except:
+            dict[i[0]] = 0
     return True
-    
